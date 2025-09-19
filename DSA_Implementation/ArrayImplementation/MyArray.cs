@@ -170,6 +170,13 @@ namespace DSA_Implementation.ArrayImplementation
             }
         }
 
+        public void Clear()
+        {
+            data = new T[4];
+            size = 4;
+            index = 0;
+        }
+
         void extend()
         {
             T[] temp = new T[size + 4];

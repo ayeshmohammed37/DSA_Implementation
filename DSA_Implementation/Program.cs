@@ -21,6 +21,10 @@ namespace DSA_Implementation
             array.RemoveAll(9);
             Console.WriteLine(array.ToString());
 
+            array.Clear();
+
+            Console.WriteLine(array.ToString());
+
 
 
 
