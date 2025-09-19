@@ -101,10 +101,6 @@ namespace DSA_Implementation.ArrayImplementation
 
         public void Insert(int i, T value)
         {
-            //(-1)
-            // 0 1  2  3 4 5 6
-            // 2 3  4  5 6 7 _
-            // 2 3 -1  4 5 6 7 _
 
             if (i <= index && i >= 0)
             {
@@ -130,6 +126,47 @@ namespace DSA_Implementation.ArrayImplementation
                     temp2 = temp;
                 }
                 data[index++] = temp;
+            }
+        }
+
+        public int IndexOf(T value)
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                if (data[i].Equals(value))
+                    return i;
+            }
+            return -1;
+        }
+
+        public bool Contains(T value)
+        {
+            int index = IndexOf(value);
+
+            return index != -1;
+        }
+
+        public void Remove(T value)
+        {
+            int i = IndexOf(value);
+            if (i != -1)
+            {
+                RemoveAt(i);
+            }
+            else
+            {
+                throw new Exception($"{value.ToString()}: NOT FOUND");
+            }
+        }
+
+        public void RemoveAll(T value)
+        {
+            int i = IndexOf(value);
+
+            while (i != -1)
+            {
+                Remove(value);
+                i = IndexOf(value);
             }
         }
 

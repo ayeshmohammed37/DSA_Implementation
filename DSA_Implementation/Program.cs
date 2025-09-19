@@ -11,10 +11,19 @@ namespace DSA_Implementation
             array.Add(2);
             array.Add(3);
             array.Add(4);
-            Console.WriteLine(array.ToString());
             array.Insert(2, -1);
+            array.Add(9);
+            array.Add(9);
+            array.Add(9);
+            array.Add(9);
 
             Console.WriteLine(array.ToString());
+            array.RemoveAll(9);
+            Console.WriteLine(array.ToString());
+
+
+
+
         }
     }
 }
