@@ -6,7 +6,15 @@ namespace DSA_Implementation
     {
         static void Main(string[] args)
         {
+            MyArray<int> array = new MyArray<int>();
+            array.Add(1);
+            array.Add(2);
+            array.Add(3);
+            array.Add(4);
+            Console.WriteLine(array.ToString());
+            array.Insert(2, -1);
 
+            Console.WriteLine(array.ToString());
         }
     }
 }

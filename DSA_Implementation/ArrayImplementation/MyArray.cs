@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -98,6 +99,40 @@ namespace DSA_Implementation.ArrayImplementation
 
         }
 
+        public void Insert(int i, T value)
+        {
+            //(-1)
+            // 0 1  2  3 4 5 6
+            // 2 3  4  5 6 7 _
+            // 2 3 -1  4 5 6 7 _
+
+            if (i <= index && i >= 0)
+            {
+                if (index >= size)
+                {
+                    extend();
+                }
+
+                T temp = default;
+                T temp2 = default;
+
+                for (int j = i; j < index; j++)
+                {
+                    temp = data[j];
+                    if (j == i)
+                    {
+                        temp2 = data[j];
+                        data[j] = value;
+                        continue;
+                    }
+
+                    data[j] = temp2;
+                    temp2 = temp;
+                }
+                data[index++] = temp;
+            }
+        }
+
         void extend()
         {
             T[] temp = new T[size + 4];
@@ -108,6 +143,21 @@ namespace DSA_Implementation.ArrayImplementation
             }
             data = temp;
             size += 4;
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder("[");
+
+            for (int i = 0; i < Count; i++)
+            {
+                sb.Append($"{data[i]}");
+                if (i != (Count - 1))
+                    sb.Append(", ");
+            }
+            sb.Append("]");
+
+            return sb.ToString();
         }
     }
 }
