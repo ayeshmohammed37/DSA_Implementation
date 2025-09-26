@@ -35,7 +35,7 @@ namespace DSA_Implementation.ArrayImplementation
      */
 
     // Dynamic Array
-    public class MyArray<T>
+    public class MyArray<T>: IEnumerable<T>
     {
         T[] data;
         int size;
@@ -205,5 +205,17 @@ namespace DSA_Implementation.ArrayImplementation
             return sb.ToString();
         }
 
+        public IEnumerator<T> GetEnumerator()
+        {
+            foreach (var item in data)
+            {
+                yield return item;
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
+        }
     }
 }

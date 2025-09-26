@@ -11,19 +11,11 @@ namespace DSA_Implementation
             array.Add(2);
             array.Add(3);
             array.Add(4);
-            array.Insert(2, -1);
-            array.Add(9);
-            array.Add(9);
-            array.Add(9);
-            array.Add(9);
 
-            Console.WriteLine(array.ToString());
-            array.RemoveAll(9);
-            Console.WriteLine(array.ToString());
-
-            array.Clear();
-
-            Console.WriteLine(array.ToString());
+            foreach (int i in array)
+            {
+                Console.WriteLine(i);
+            }
 
 
 
